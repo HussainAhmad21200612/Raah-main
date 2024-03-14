@@ -5,6 +5,7 @@ export const updateDoctor = async (req, res) => {
     const id=req.params.id;
 
 
+
     try{
 
         const updatedDoctor= await Doctor.findByIdAndUpdate(id,{$set:req.body},{new:true});
@@ -63,6 +64,7 @@ export const getAllDoctor = async (req, res) => {
         }
         else{
             doctors= await Doctor.find({isApproved:'approved'}).select("-password");
+            console.log(doctors)
         }
         
         res.status(200).json({success:true, message:"Doctors found", data:doctors});

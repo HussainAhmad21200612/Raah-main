@@ -9,6 +9,7 @@ const generateToken = user => {
 
 export const register = async(req, res) => {
     const { name, email, password, role, photo, gender } = req.body;
+    console.log(req.body,"User dtaaa")
     try{
         let user=null;
         if(role === "patient") {
@@ -54,6 +55,7 @@ export const register = async(req, res) => {
     return res.status(200).json({success:true, message: "User created successfully" });
 }
     catch(error) {
+        console.error("Error registering user:", error);
         return res.status(500).json({success:false, message: "Something went wrong" });
     }
 }

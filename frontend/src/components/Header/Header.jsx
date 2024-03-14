@@ -30,6 +30,7 @@ const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
   const {user,role,token}=useContext(authContext);
+  console.log(user)
 
   const handleStickyHeader = () => {
     window.addEventListener("scroll", () => {
@@ -83,6 +84,7 @@ const Header = () => {
           {/* nav Right */}
           <div className="flex items-center gap-4">
             {
+              
               token && user ? 
               (<div>
                 

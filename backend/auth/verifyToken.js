@@ -44,7 +44,9 @@ export const restrict= roles=> async(req,res,next)=>{
     if(doctor){
         user=doctor;
     }
+    console.log(user)
   if(user && !roles.includes(user.role)){
+    console.log(user);
         return res.status(403).json({success:false, message:"You are not allowed to access this route"});
   }
 
